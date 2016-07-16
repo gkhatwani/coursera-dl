@@ -184,7 +184,7 @@ def print_failed_urls(failed_urls):
     logging.info('-' * 80)
 
 
-def download_class(args, class_name):
+def download_on_demand_class(args, class_name):
     """
     Try to download on-demand class.
 
@@ -214,7 +214,7 @@ def main():
     for class_name in args.class_names:
         try:
             logging.info('Downloading class: %s', class_name)
-            if download_class(args, class_name):
+            if download_on_demand_class(args, class_name):
                 completed_classes.append(class_name)
         except requests.exceptions.HTTPError as e:
             logging.error('HTTPError %s', e)
